@@ -1,6 +1,21 @@
 import React from 'react';
 import {Text, Modal, View, StyleSheet, Dimensions, SafeAreaView, ImageBackground, Image, TextInput, TouchableOpacity, ScrollView, Animated} from 'react-native';
 
+const data = [
+  {
+    Topic: "Please give permission in HRIS system or personal file",
+    Date: "2022-05-05",
+    From: "DGM",
+    Job_No: "542.20/CN/22/0099",
+    Issue_Num: "0099",
+    Date_1: "2022-04-07",
+    User_Name: "Imalka",
+    User_num: "0755504556",
+    Status: "Ongoing",
+    Assign_To: "Lakshitha",
+  },
+]
+
 const ModalPoup = ({visible, children}) => {
   const [showModal, setShowModal] = React.useState(visible);
   const scaleValue = React.useRef(new Animated.Value(0)).current;
@@ -52,7 +67,7 @@ export default function All() {
             </View>
           </View>
           <View style={styles.title1}>
-            <Text style={styles.title}>Issues</Text>
+            <Text style={styles.title}>Service Desk Problem</Text>
           </View>
           {/* < End of header..........................................................................................................! /> */}
           {/* < Body...............................................................................................................! /> */}
@@ -67,72 +82,76 @@ export default function All() {
             </View>
           </View>
           <ScrollView style={{marginBottom: 50}}>
-            <View style={styles.issueWrapper}>
-              <View style={styles.issueTextes}>
-                <Text style={styles.issueText1}>Please give permission in HRIS system for personal file handling </Text>
-                <View style={styles.issueTextes1}>
-                  <Text style={styles.issueText2}>2022.05.05</Text>
-                  <Text style={styles.issueText3}>DGM</Text>
-                  <Text style={styles.issueText4}>Job No:</Text>
-                  <Text style={styles.issueText5}>542.20/CRJ/22/0099</Text>
-                </View>
-              </View>
-              <View>
-                <ModalPoup visible={visible}>
-                  <View style={{alignItems: 'center'}}> 
-                    <View style={styles.header1}>
-                      <TouchableOpacity onPress={() => setVisible(false)}>
-                        <Image source={require('./../assest/closed.png')} style={{height: 13, width: 13}} />
-                      </TouchableOpacity>
-                    </View>
-                    <View style={styles.issueTextes}>
-                      <View style={styles.modalTexthead}>
-                        <View style={styles.modalTexthead1}>
-                          <Text style={styles.issueTexts2}>Issue Number: </Text>
-                          <Text style={styles.issueTexts2}># 0090</Text>
-                        </View>
-                        <Text style={styles.issueTexts3}>2022-05-05</Text>
-                      </View>
-                      <Text style={styles.issueTexts1}>Please give permission in HRIS system for personal file handling </Text>
-                      <View style={styles.rowtext1}>
-                        <Text style={styles.issueTexts6}>Job No: </Text>
-                        <Text style={styles.issueTexts5}>542.20/CRJ/22/0099</Text>
-                      </View>
-                      <View style={styles.rowtext1}>
-                        <Text style={styles.issueTexts6}>Job finalize Date: </Text>
-                        <Text style={styles.issueTexts5}>2022-04-07</Text>
-                      </View>
-                      <View style={styles.rowtext1}>
-                        <Text style={styles.issueTexts6}>User: </Text>
-                        <Text style={styles.issueTexts5}>Imalka</Text>
-                        <Text style={styles.issueTexts6}>:</Text>
-                        <Text style={styles.issueTexts5}>0771600949</Text>
-                      </View>
-                      <View style={styles.imageWrapper}>
-                        <Image source={require('./../assest/callUser1.png')} style={styles.imageme} />
-                        <Image source={require('./../assest/callRing.png')} style={styles.imageme} />
-                        <View style={styles.rowtext2}>
-                          <View style={styles.rowtext1}>
-                            <Text style={styles.issueTexts6}>Status:</Text>
-                            <Text style={styles.issueTexts5}>Ongoing</Text>
-                          </View>
-                          <View style={styles.rowtext1}>
-                            <Text style={styles.issueTexts6}>Assign to:</Text>
-                            <Text style={styles.issueTexts5}>Lakshitha</Text>
-                          </View>
-                        </View>
-                      </View>
+            {data.map((item, index) => {
+              return (
+                <View style={styles.issueWrapper}>
+                  <View style={styles.issueTextes}>
+                    <Text style={styles.issueText1}>{item.Topic}</Text>
+                    <View style={styles.issueTextes1}>
+                      <Text style={styles.issueText2}>{item.Date}</Text>
+                      <Text style={styles.issueText3}>{item.From}</Text>
+                      <Text style={styles.issueText4}>Job No:</Text>
+                      <Text style={styles.issueText5}>{item.Job_No}</Text>
                     </View>
                   </View>
-                </ModalPoup>
-                <TouchableOpacity onPress={() => setVisible(true)}>
-                  <Image source={require('./../assest/more.png')} style={styles.issueImageRight}/>
-                </TouchableOpacity>
-              </View>
-            </View>
+                  <View>
+                    <ModalPoup visible={visible}>
+                      <View style={{alignItems: 'center'}}> 
+                        <View style={styles.header1}>
+                          <TouchableOpacity onPress={() => setVisible(false)}>
+                            <Image source={require('./../assest/closed.png')} style={{height: 13, width: 13}} />
+                          </TouchableOpacity>
+                        </View>
+                        <View style={styles.issueTextes}>
+                          <View style={styles.modalTexthead}>
+                            <View style={styles.modalTexthead1}>
+                              <Text style={styles.issueTexts2}>Issue Number: </Text>
+                              <Text style={styles.issueTexts2}>{item.Issue_Num}</Text>
+                            </View>
+                            <Text style={styles.issueTexts3}>2022-05-05</Text>
+                          </View>
+                          <Text style={styles.issueTexts1}>{item.Topic} </Text>
+                          <View style={styles.rowtext1}>
+                            <Text style={styles.issueTexts6}>Job No: </Text>
+                            <Text style={styles.issueTexts5}>{item.Job_No}</Text>
+                          </View>
+                          <View style={styles.rowtext1}>
+                            <Text style={styles.issueTexts6}>Job finalize Date: </Text>
+                            <Text style={styles.issueTexts5}>{item.Date_1}</Text>
+                          </View>
+                          <View style={styles.rowtext1}>
+                            <Text style={styles.issueTexts6}>User: </Text>
+                            <Text style={styles.issueTexts5}>{item.User_Name}</Text>
+                            <Text style={styles.issueTexts6}>:</Text>
+                            <Text style={styles.issueTexts5}>{item.User_num}</Text>
+                          </View>
+                          <View style={styles.imageWrapper}>
+                            <Image source={require('./../assest/callUser1.png')} style={styles.imageme} />
+                            <Image source={require('./../assest/callRing.png')} style={styles.imageme} />
+                            <View style={styles.rowtext2}>
+                              <View style={styles.rowtext1}>
+                                <Text style={styles.issueTexts6}>Status:</Text>
+                                <Text style={styles.issueTexts5}>{item.Status}</Text>
+                              </View>
+                              <View style={styles.rowtext1}>
+                                <Text style={styles.issueTexts6}>Assign to:</Text>
+                                <Text style={styles.issueTexts5}>{item.Assign_To}</Text>
+                              </View>
+                            </View>
+                          </View>
+                        </View>
+                      </View>
+                    </ModalPoup>
+                    <TouchableOpacity onPress={() => setVisible(true)}>
+                      <Image source={require('./../assest/more.png')} style={styles.issueImageRight}/>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              )
+            })}
           </ScrollView>
           {/* < End of body..........................................................................................................! /> */}          
-          </ImageBackground>
+        </ImageBackground>
       </View>
     </SafeAreaView>
   );
@@ -228,7 +247,7 @@ const styles = StyleSheet.create({
   issueImageRight: {
     height: 31,
     width: 31,
-    marginTop: 20,
+    marginTop: 8,
     margin: 10,
   },
   issueTextes: {

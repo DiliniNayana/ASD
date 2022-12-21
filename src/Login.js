@@ -1,20 +1,44 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, Dimensions, ImageBackground, StyleSheet, TextInput, SafeAreaView, Image, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import {useNavigation} from '@react-navigation/native';
+import fetchService from '../components/fetchService';
+import {asyncStorageServiceSetItem} from '../components/asyncStorageService';
 
 export default function Login() {
 
-  const [email, setEmail] = React.useState('')
-  const [password, setPassword] = React.useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const navigation = useNavigation();
 
+  // const handleSignIn = () => {
+  //   if (email === '042998' && password === '123') {
+  //     console.warn('sign in');
+  //     // alert = ('hello');
+  //     navigation.navigate('bottomTab');
+  //   }
+
+
+  // }
+
   const handleSignIn = () => {
-    if (email === 'Dilini' && password === '123') {
-      console.warn('sign in');
-      // alert = ('hello');
-      navigation.navigate('bottomTab');
-    }
+    fetchService(`https://asd.ceb.lk/API/User.php?epf=${email}`, 'GET', undefined)
+      .then(res => {
+        const data = {
+          email,
+          id: res[0].id,
+          full_name: res[0].full_name,
+          designation: res[0].designation
+        }
+        console.log(" > > > > > > ",data)
+
+        asyncStorageServiceSetItem('user_data', JSON.stringify(data));
+
+        userData = data;
+
+        // alert(res.full_name);
+        navigation.replace('Home');
+      })
+      .catch(error => console.log("LOGIN "+error))
 
 
   }
@@ -84,16 +108,16 @@ const styles = StyleSheet.create({
   },
   logo1: {
     height: 55,
-    width: 270,
-    marginTop: 140,
-    marginBottom: 40,
+    width: 273,
+    marginTop: '30%',
+    marginBottom: '10%',
   },
   userfeild: {
     backgroundColor: '#fff',
-    marginTop: 20,
+    marginTop: '7%',
     borderRadius: 60,
-    marginLeft: 25,
-    marginRight: 25,
+    marginLeft: '8%',
+    marginRight: '8%',
     elevation: 5,
     flexDirection: 'row',
     paddingBottom: 10,
@@ -102,24 +126,24 @@ const styles = StyleSheet.create({
   userimage: {
     height: 23,
     width: 20,
-    marginTop: 12,
+    marginTop: '4%',
     opacity: 0.5,
   },
   userimage1: {
     height: 20.5,
     width: 21,
-    marginTop: 15,
+    marginTop: '5%',
     opacity: 0.4,
   },
   input: {
     width: '85%',
-    marginLeft: 10,
+    marginLeft: '3%',
   },
   button: {
-    marginLeft: 230,
-    marginTop: 40,
+    marginLeft: '60%',
+    marginTop: '10%',
     backgroundColor: '#710F30',
-    marginRight: 30,
+    marginRight: '8%',
     padding: 15,
     paddingLeft: 20,
     paddingRight: 20,
@@ -129,19 +153,19 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   forget: {
-    marginLeft: 30,
-    marginTop: 20,
+    marginLeft: '9%',
+    marginTop: '4%',
   },
   copy: {
     alignItems: 'center',
-    marginTop: 200 ,
+    marginTop: '53%' ,
     opacity: 0.5,
   },
   send: {
     height: 16,
     width: 18,
-    marginLeft: 10,
-    marginTop: 3,
+    marginLeft: '8%',
+    marginTop: '3%',
   },
   button1: {
     flexDirection: 'row',

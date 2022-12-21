@@ -13,7 +13,7 @@ export default function App() {
     <NavigationContainer>
       <Navigator screenOptions={{
           headerShown: false
-      }}>
+        }}>
         <Screen name="Login" component={Login} />
         <Screen name="bottomTab" component={BottomTab} />
       </Navigator>

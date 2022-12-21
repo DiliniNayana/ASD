@@ -3,6 +3,7 @@ import {Text, View, StyleSheet, Dimensions, SafeAreaView, ImageBackground, Image
 import call from 'react-native-phone-call';
 
 
+
 export default function Call() {
 
   const triggerCall = () => {
@@ -101,7 +102,7 @@ export default function Call() {
             </View>
           </View>
           <View style={styles.title1}>
-            <Text style={styles.title}>Contact</Text>
+            <Text style={styles.title}>Contact Us</Text>
           </View>
           {/* < End of header..........................................................................................................! /> */}
           {/* <Body ....................................................................................................................!/> */}
@@ -110,7 +111,7 @@ export default function Call() {
             </View> */}
           <ScrollView style={styles.ScrollView1}>
             <View style={styles.rowWrapper}>
-              <Image source={require('./../assest/callUser.png')} style={styles.callUser} />
+              <Image source={require('./../assest/CEB-Logo-ai.png')} style={styles.callUser} />
               <View style={styles.textContainer}>
                 <Text style={styles.callText1}>General Line</Text>
                 <Text style={styles.callText2}>Manager ISO Unit</Text>
@@ -120,7 +121,7 @@ export default function Call() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowWrapper}>
-              <Image source={require('./../assest/callUser.png')} style={styles.callUser} />
+              <Image source={require('./../assest/staff_pic/thilan.png')} style={styles.callUser} />
               <View style={styles.textContainer}>
                 <Text style={styles.callText1}>Miss. Meththa Perera</Text>
                 <Text style={styles.callText2}>Manager ISO</Text>
@@ -130,7 +131,7 @@ export default function Call() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowWrapper}>
-              <Image source={require('./../assest/callUser.png')} style={styles.callUser} />
+              <Image source={require('./../assest/staff_pic/sameera.png')} style={styles.callUser} />
               <View style={styles.textContainer}>
                 <Text style={styles.callText1}>Mr. Sameera Indunil</Text>
                 <Text style={styles.callText2}>Ledger/MIS reports/ PIV</Text>
@@ -140,7 +141,7 @@ export default function Call() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowWrapper}>
-              <Image source={require('./../assest/callUser.png')} style={styles.callUser} />
+              <Image source={require('./../assest/staff_pic/manju.png')} style={styles.callUser} />
               <View style={styles.textContainer}>
                 <Text style={styles.callText1}>Mr. Manju Alwis</Text>
                 <Text style={styles.callText2}>FIFO/ Inventory/ CBRS/ Bulk e-bills/ LED/ Purchase Invoice</Text>
@@ -150,7 +151,7 @@ export default function Call() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowWrapper}>
-              <Image source={require('./../assest/callUser.png')} style={styles.callUser} />
+              <Image source={require('./../assest/staff_pic/supun.png')} style={styles.callUser} />
               <View style={styles.textContainer}>
                 <Text style={styles.callText1}>Mr. Chathuranga</Text>
                 <Text style={styles.callText2}>Requisitions/ Returns/ Service Desk/ ABES</Text>
@@ -160,7 +161,7 @@ export default function Call() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowWrapper}>
-              <Image source={require('./../assest/callUser.png')} style={styles.callUser} />
+              <Image source={require('./../assest/staff_pic/niroshan.png')} style={styles.callUser} />
               <View style={styles.textContainer}>
                 <Text style={styles.callText1}>Mr. Niroshan</Text>
                 <Text style={styles.callText2}>Payslips/ Purchase/ Invoice/ Inventory/ Requisitions/ Returns/ PP</Text>
@@ -170,7 +171,7 @@ export default function Call() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowWrapper}>
-              <Image source={require('./../assest/callUser.png')} style={styles.callUser} />
+              <Image source={require('./../assest/staff_pic/thilan.png')} style={styles.callUser} />
               <View style={styles.textContainer}>
                 <Text style={styles.callText1}>Mr. Lakshitha</Text>
                 <Text style={styles.callText2}>HRIMS/ Service Main Card/ Service Desk</Text>
@@ -180,9 +181,9 @@ export default function Call() {
               </TouchableOpacity>
             </View>
             <View style={styles.rowWrapper}>
-              <Image source={require('./../assest/callUser.png')} style={styles.callUser} />
+              <Image source={require('./../assest/staff_pic/thilan.png')} style={styles.callUser} />
               <View style={styles.textContainer}>
-                <Text style={styles.callText1}>Ms. Pradeepa</Text>
+                <Text style={styles.callText1}>Mrs. Pradeepa</Text>
                 <Text style={styles.callText2}>Payslips/ Payment Plans/ MITFIN Configuration</Text>
               </View>
               <TouchableOpacity activeOpacity={0.7} onPress={triggerCall8}>
@@ -261,15 +262,15 @@ const styles = StyleSheet.create({
   callRing: {
     height: 40,
     width: 40,
-    margin: 15,
+    marginTop: 18,
   },
   callUser: {
-    height: 28,
-    width: 24,
+    height: 39,
+    width: 35,
     margin: 18,
-    marginLeft: 20,
-    marginRight: 25,
-    opacity: 0.7,
+    marginLeft: '5%',
+    marginRight: '5%',
+    borderRadius: 10,
   },
   callText1: {
     fontSize: 17,
@@ -278,14 +279,14 @@ const styles = StyleSheet.create({
     color: '#000',
   },
   textContainer: {
-    width: '60%',
+    width: '65%',
   },
   callText2: {
     opacity: 0.7,
-    marginBottom: 5,
+    marginBottom: 10,
   },
   ScrollView1: {
-    marginBottom: 50,
+    marginBottom: '13%',
   },
   //  < End of body..........................................................................!/>
 });
