@@ -50,7 +50,7 @@ const BottomTab = () => {
                 resizeMode='contain'
                 style ={{width:25, height:25, tintColor: focused? '#710F30' : '#666464'}}
               />
-              <Text style ={{fontSize:12, fontWeight: 'bold', color: focused? '#710F30' : '#666464', paddingBottom: 10}}>Requset</Text>
+              <Text style ={{fontSize:12, fontWeight: 'bold', color: focused? '#710F30' : '#666464', paddingBottom: 10}}>Issue</Text>
             </View>
           ),
           headerShown: false,
@@ -63,7 +63,7 @@ const BottomTab = () => {
                     resizeMode='contain'
                     style ={{width:25, height:25, tintColor: focused? '#710F30' : '#666464'}}
                     />
-                    <Text style ={{fontSize:12, fontWeight: 'bold', color: focused? '#710F30' : '#666464', paddingBottom: 10}}>Problems</Text>
+                    <Text style ={{fontSize:12, fontWeight: 'bold', color: focused? '#710F30' : '#666464', paddingBottom: 10}}>Issues</Text>
                 </View>
             ),
             headerShown:false,
@@ -81,12 +81,12 @@ const BottomTab = () => {
             ),
             headerShown:false,
           }}/>
-          
-          
+
+
         </Tab.Navigator>
-        
-      
-      
+
+
+
 /*
 <NavigationContainer>
 <Stack.Navigator>

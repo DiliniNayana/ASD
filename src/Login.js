@@ -21,22 +21,17 @@ export default function Login() {
   // }
 
   const handleSignIn = () => {
-    fetchService(`https://asd.ceb.lk/API/User.php?epf=${email}`, 'GET', undefined)
+    fetchService(`https://asd.ceb.lk/API/User.php?epf=040567`, 'GET', undefined)
       .then(res => {
-        const data = {
-          email,
-          id: res[0].id,
-          full_name: res[0].full_name,
-          designation: res[0].designation
-        }
-        console.log(" > > > > > > ",data)
+        const data = res;
+        console.log("Your Data " + JSON.stringify(data))
 
-        asyncStorageServiceSetItem('user_data', JSON.stringify(data));
+       // asyncStorageServiceSetItem('user_data', JSON.stringify(data));
 
-        userData = data;
+       let userData = data;
 
         // alert(res.full_name);
-        navigation.replace('Home');
+      //  navigation.navigate('Home');
       })
       .catch(error => console.log("LOGIN "+error))
 

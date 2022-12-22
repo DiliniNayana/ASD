@@ -7,6 +7,7 @@ const {Navigator, Screen} = createNativeStackNavigator();
 //screen
 import Login from './src/Login';
 import BottomTab from './src/bottomTab';
+import Home from './src/Home';
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         }}>
         <Screen name="Login" component={Login} />
         <Screen name="bottomTab" component={BottomTab} />
+          <Screen name="Home" component={Home} />
       </Navigator>
     </NavigationContainer>
   );
